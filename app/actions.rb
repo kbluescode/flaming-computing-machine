@@ -129,5 +129,5 @@ get '/stories/:id/scenes/:scene_id' do
   @story = Story.find_by_id(params[:id])
   @scene = @story.scenes.find_by_id(params[:scene_id])
 
-  
+  erb :'stories/scene'
 end
