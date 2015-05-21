@@ -1,14 +1,51 @@
+html, body. div {
+
+  width: 100%;
+overflow-x: hidden !important;
+}
+
 body {
   background-color: #86ccce;
   width:100%;
 }
 
+.navbar {
+  background-color: #baeeef;
+  width:100%;
+  border:none;
+}
+
+
 #center {
   text-align: center;
-  width:100%;
-  padding-top: 200px;
-  padding-bottom: 200px;
+  padding-top: 250px;
+  padding-bottom: 250px;
+  background-color:red;
+
 }
+
+.title {
+  margin: none;
+  text-align: center;
+  padding-top: 100px; 
+  background-color: blue;
+}
+
+.instructions {
+  text-align: center;
+  padding-top:40px;
+    background-color:red;
+}
+
+.jumbotron {
+  margin:none;
+  text-align:center;
+  background-color: ;
+
+}
+
+
+
 
 
 
