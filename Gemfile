@@ -11,6 +11,8 @@ gem 'sinatra-activerecord'
 gem 'puma'
 gem 'tux'
 
+gem 'json'
+
 group :development, :test do
   gem 'pry'
   gem 'shotgun'
