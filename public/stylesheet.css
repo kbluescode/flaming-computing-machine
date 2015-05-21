@@ -1,9 +1,18 @@
 body {
-  background-color: red;
+  background-color: #86ccce;
+  width:100%;
+}
+
+#center {
+  text-align: center;
+  width:100%;
+  padding-top: 200px;
+  padding-bottom: 200px;
 }
 
 
-.site-wrapper {
-  background-color: blue;
 
-}
+
+
+
+
