@@ -20,3 +20,8 @@ desc 'Retrieves the current schema version number'
 task "db:version" do
   puts "Current version: #{ActiveRecord::Migrator.current_version}"
 end
+
+desc "populate the test database with sample data"
+task "db:populate" do
+  
+end
