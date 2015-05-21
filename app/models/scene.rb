@@ -1,1 +1,4 @@
-scene.rb
+class Scene < ActiveRecord::Base
+  belongs_to :story
+  belongs_to :user
+end
