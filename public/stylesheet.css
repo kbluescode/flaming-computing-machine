@@ -1,9 +1,57 @@
+
+html, body. div {
+
+  width: 100%;
+overflow-x: hidden !important;
+}
+
 body {
-  background-color: red;
+  background-color: #86ccce;
+  width:100%;
+}
+
+#center {
+  text-align: center;
+  padding-top: 250px;
+  padding-bottom: 250px;
+}
+
+.title {
+  margin: none;
+  text-align: center;
+  padding-top: 100px; 
+}
+
+.instructions {
+  text-align: center;
+  padding-top:10px;
+}
+
+.jumbotron {
+  padding-top:100px;
+  margin:none;
+  text-align:center;
+  background-color: #86ccce;
+}
+
+textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
-.site-wrapper {
-  background-color: blue;
 
-}
+
+
+
+
+
+
+
+
