@@ -10,21 +10,19 @@ body {
   width:100%;
 }
 
-#center {
+.center {
   text-align: center;
-  padding-top: 250px;
-  padding-bottom: 250px;
 }
+
+.storyboard {
+  border-radius:15px;
+  background-color: red;
+
+}
+
 
 .title {
-  margin: none;
-  text-align: center;
-  padding-top: 100px; 
-}
-
-.instructions {
-  text-align: center;
-  padding-top:10px;
+  padding-top:50px;
 }
 
 .jumbotron {
