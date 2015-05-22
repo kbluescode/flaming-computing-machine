@@ -1,0 +1,5 @@
+<ul>
+  <% @stories.each do |story| %>
+    <li><a href='/stories/<%= story.id %>'><%= story.description %></a></li>
+  <% end %>
+</ul>
