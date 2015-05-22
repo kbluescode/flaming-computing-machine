@@ -37,27 +37,6 @@ post '/login' do
   end
 end
 
-
-# Signup
-
-
-get '/signup' do
-  @user = User.new
-
-  erb :signup
-end
-
-post '/signup' do
-  @user = User.new(user_name: params[:user_name], email: params[:email], password: user[:password])
-
-  if @user.save
-    redirect '/'
-  else
-    erb :signup
-  end
-end
-
-
 # Users
 
 
