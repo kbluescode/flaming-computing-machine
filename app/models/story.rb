@@ -1,5 +1,5 @@
 class Story < ActiveRecord::Base
-  has_many :scenes
-
   belongs_to :user
+
+  has_many :scenes
 end

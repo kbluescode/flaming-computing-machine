@@ -32,8 +32,8 @@ task "db:populate" do
   # Make Users
 
   User.destroy_all
-  kevin = User.create!(user_name: 'Kevin', password: 'derp')
-  robin = User.create!(user_name: 'Robin', password: 'yo')
+  kevin = User.create!(user_name: 'Kevin', password: 'derpderp')
+  robin = User.create!(user_name: 'Robin', password: 'yodawg')
   andrew = User.create!(user_name: 'Andrew', password: 'iheartvince')
 
   # Make Scenes
@@ -46,17 +46,17 @@ task "db:populate" do
                           choice1_text: 'You just walk away.',
                           choice2_text: 'You punch him in the face.')
 
-  scene1.scenes << scene2
+  scene1.scene1 = scene2
   scene1.save!
 
   # Make story
 
   Story.destroy_all
-  story1 = Story.create!(tags: 'supernatural')
-  story1.scene = scene1
+  story1 = Story.create!()
 
+  story1.scenes << scene1
   # Add story to user
   
-  kevin.story = story1
+  kevin.stories << story1
   kevin.save!
 end
