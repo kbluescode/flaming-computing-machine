@@ -1,11 +1,11 @@
 class SceneImporter
 
-  def initialize(filename=File.dirname(__FILE__) + "/../db/data/scenes.csv")
+  def initialize(filename=File.dirname(__FILE__) + "/../data/scenes.csv")
     @filename = filename
   end
 
   def import
-    field_names = ['', '', '', '']
+    field_names = ['content', 'choice1_text', 'scene1_id', 'choice2_text', 'scene2_id']
 
     print "Importing scenes from #{@filename}: "
     failure_count = 0
