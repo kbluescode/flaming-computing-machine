@@ -120,10 +120,17 @@ end
 
 # Scenes
 
+get '/stories/:story_id/scenes/new' do
 
-get '/stories/:id/scenes/:scene_id' do
-  @story = Story.find_by_id(params[:id])
-  @scene = Scene.find_by_id(params[:scene_id])
+end
+
+post '/stories/:story_id/scenes/new' do
+
+end
+
+get '/stories/:story_id/scenes/:scene_id' do
+  @story = Story.find(params[:story_id].to_i)
+  @scene = @story.scenes.find(params[:scene_id].to_i)
 
   erb :'stories/scenes/show'
 end
