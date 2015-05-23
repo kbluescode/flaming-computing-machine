@@ -56,6 +56,7 @@ task "db:populate" do
 
   story1.scenes << scene1
   story1.scenes << scene2
+  story1.save!
   # Add story to user
   
   kevin.stories << story1
