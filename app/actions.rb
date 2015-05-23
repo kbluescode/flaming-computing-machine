@@ -73,8 +73,15 @@ end
 
 
 get '/stories' do
-  @stories = Story.all
-
+  if params[:query]
+    @scenes = Scene.where("content LIKE ?", "%#{params[:query]}%").to_a
+    p @scenes
+    @stories = @scenes.map { |scene| scene.story }
+    p @stories
+  else
+    @stories = Story.all
+  end
+  
   erb :'stories/index'
 end
 
