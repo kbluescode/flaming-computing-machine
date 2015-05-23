@@ -28,7 +28,7 @@ end
 
 desc "populate the test database with sample data"
 task "db:populate" do
-  
+
   # Make Users
 
   User.destroy_all

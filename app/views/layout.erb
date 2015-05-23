@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="<%= url('stylesheets/bootstrap.css')%>" rel="stylesheet" />
+    <link href="<%= url('stylesheets/bootstrap-theme.css')%>" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="<%= url('stylesheets/stylesheet.css')%>"/>
+  </head>
+
+  <body>  
+    <div class="navbar navbar-default navbar-fixed-top">      
+      <div class="container">    
+        <div class="navbar-header">      
+          <a href="" class="navbar-brand">Choose Your Story</a>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">     
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </div>
+        
+        <div class="collapse navbar-collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="email" placeholder="Email" class="form-control" />
+            </div>
+            
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control" />
+            </div>
+            
+            <button type="submit" class="btn btn-success">Log In</button>
+            <a href="/users/new" class="btn btn-success">Sign up</a>          
+          </form>
+        </div>   
+      </div>    
+    </div>
+
+    
+    <section class="container">
+    <%= yield %>   
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
+     <script src="<%= url('javascript/bootstrap.min.js')%>"></script>
+  </body>
+</html>
+ 
