@@ -91,6 +91,7 @@ end
 
 get '/stories/new' do
   @story = Story.new
+  @scene = Scene.new
 
   erb :'stories/new'
 end
@@ -98,25 +99,12 @@ end
 post '/stories/new' do
   @story = Story.new
 
-  failed = false
-
-  @story.transaction do
-    @scene = Scene.create(content: params[:content],
+  @scene = Scene.new(content: params[:content],
                       choice1_text: params[:choice1_text],
-                      choice2_text: params[:choice2_text])  
-    @story = Story.create(tags: params[:tags],
-                      scene_id: @scene.id)
+                      choice2_text: params[:choice2_text])
+  @story.scenes << @scene
 
-    if @scene.id && @story.id
-      puts "Everything's fine!"
-    else
-      failed = true
-      puts "Everything's FUCKED"
-      raise ActiveRecord::Rollback
-    end
-  end
-
-  unless failed
+  if @scene.save && @story.save 
     redirect '/stories'
   else
     erb :'stories/new'
@@ -139,3 +127,4 @@ get '/stories/:id/scenes/:scene_id' do
 
   erb :'stories/scenes/show'
 end
+
