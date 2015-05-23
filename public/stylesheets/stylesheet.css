@@ -19,6 +19,13 @@ body {
   background-color: red;
 }
 
+.padding_up {
+  padding-top:100px;
+}
+
+.padding_down {
+  padding-bottom:50px;
+}
 
 .title {
   padding-top:50px;
