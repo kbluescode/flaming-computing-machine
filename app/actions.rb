@@ -75,8 +75,12 @@ end
 get '/stories' do
   if params[:query]
     @scenes = Scene.where("content LIKE ?", "%#{params[:query]}%").to_a
-    p @scenes
-    @stories = @scenes.inject([]) { |total, scene| total << scene.story unless total.nil? || total.include?(scene.story) }
+    
+    @stories = []
+    @scenes.each do |scene|
+      @stories << scene.story unless @stories.include?(scene.story)
+    end
+
     @error_msg = "Couldn't find any stories with keyword: #{params[:query]}" if @stories.nil? || @stories.empty?
   else
     @stories = Story.all
