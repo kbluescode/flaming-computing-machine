@@ -1,184 +1,80 @@
-  <div class="jumbotron">
-    
-      <h1>Story Path</h1>
-
-      <h1>How it works</h1>
-      
-      <h3>Summary of app</h3>
-      
-  <div class="jumbotron">    
-      <h2>Story Path</h2>
-      <h3>Summary of app</h3>
-  </div> 
-
-
-
-  <div class="container">
-
-    <div class="row instructions" >
-    
-      <div class="col-md-4 box">
-  <div class="container center">
-    <div class="row" >    
-      <div class="col-md-4 box padding_down">
-      <h2>Intructions 1</h2> 
-        <p>stories adskfh alsdkhfl kasdhf klahdfkh dsfkh
-        adkhflkasdhfk lahsdflkjasdhfkljha sdfklhdsakljfhk
-        kjasdhfkjashdfklashdfkljdsah adsf lkajsdhfakdshf
-        adhsfkahsdfk adshfhasd asdjhf ksdjah sdafjh  asd
-        aksdhfasdh  asdkhfkl j asdfhl kasjdhf ahsdfl kj
-        ahsdfkl hasdkl fj kjasdhfk lahsdf lkhaf kj lds</p> 
-      
-      </div>
-      
-      <div class="col-md-4 box">
-      <h2>Intructions 2</h2>
-   
-          <p>stories adskfh alsdkhfl kasdhf klahdfkh dsfkh
-        adkhflkasdhfk lahsdflkjasdhfkljhas dfklhdsakljfhk
-        kjasdhfkjashdfklashdfkljdsah adsf lkajsdhfakdshf
-        adhsfkahsdfk adshfhasd asdjhf ksdjah sdafjh  asd
-        aksdhfasdh  asdkhfkl j asdfhl kasjdhf ahsdfl kj
-        ahsdfkl hasdkl fj kjasdhfk lahsdf lkhaf kj lds</p> 
-      
-      </div>
-      
-      <div class="col-md-4 box">
-      <h2>Intructions 3</h2> 
-    
-          <p>stories adskfh alsdkhfl kasdhf klahdfkh dsfkh
-        adkhflkasd hfklahsdflkjasdhfk ljhasdfklhdsakljfhk
-        kjasdhfkjashdfklashdfkljdsah adsf lkajsdhfakdshf
-        adhsfkahsdfk adshfhasd asdjhf ksdjah sdafjh  asd
-        aksdhfasdh  asdkhfkl j asdfhl kasjdhf ahsdfl kj
-        ahsdfkl hasdkl fj kjasdhfk lahsdf lkhaf kj lds</p> 
-      
-      </div>   
-   </div>
+<div class="row padding_up">
+  <div class="col-xs-12">
+    <h1 class="text-center title">Story Path</h1>
   </div>
+</div>
 
 
-
+<div class="row padding_down padding_up">
   <div class="container">
-    
-    <div class="row" id="center">
-    
-      <div class="col-md-4 box">
-      <h2>story 1</h2> 
-       <p>stories adskfh alsdkhfl kasdhf klahdfkh dsfkh
-          adkhflkasdhfk lahsdflkjasdhfkljha sdfklhdsakljfhk
-          kjasdhfkjashdfklashdfkljdsah adsf lkajsdhfakdshf
-          adhsfkahsdfk adshfhasd asdjhf ksdjah sdafjh  asd
-          aksdhfasdh  asdkhfkl j asdfhl kasjdhf ahsdfl kj
-          ahsdfkl hasdkl fj kjasdhfk lahsdf lkhaf kj lds</p> 
+
+    <div class="row" id="center">  
+      <div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-4 padding_down circle center">
+        <h2>Choose a story</h2> 
+        <p>Choose between some stories and stuff blah stories adskfh alsdkhfl kasdhf klahdfkh dsfkh adkhflkasdhf sdflkjasdhfkljhas dfklhdsakljfhk</p>
+        </div>
+
+        <div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-4 padding_down circle center">
+          <h2>Create a story</h2>   
+          <p>Choose between some stories and stuff blah stories adskfh alsdkhfl kasdhf klahdfkh dsfkh
+            adkhflkasdhfk lahsdflkjasdhfkljhas dfklhdsakljfhk</p>       
+          </div>
+
+          <div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-4 padding_down circle center">
+            <h2>Play</h2>     
+            <p>Choose between some stories and stuff blah stories adskfh alsdkhfl kasdhf klahdfkh dsfkh   adkhflkasdhfk lahsdflkjasdhfkljhas dfklhdsakljfhk
+            </p>       
+          </div>
+
+        </div>
+  </div>
+</div>
+
+        <% @stories.each do |story| %>
+
+        <div class="row">
+          <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-8">
+            <div class="well well-md">
+              <p><%= story.scenes.first.content %></p>
+            </div> 
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-4">
+            <div class="well well-sm">
+              <h4 class="text-center">
+                <% if story.scenes.first.scene1 %>
+                <a href="/stories/<%= story.id %>/scenes/<%= story.scenes.first.scene1.id %>"> 
+                  <%= story.scenes.first.choice1_text %>
+                </a>
+                <% else %>
+                <a href="/stories/<%= story.id %>/scenes/<%= story.scenes.first.id %>/new?choice=1">
+                  <%= story.scenes.first.choice1_text %>
+                </a>
+                <% end %>
+              </a>
+            </h4>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="well well-sm">
+            <h4 class="text-center">
+              <% if story.scenes.first.scene2 %>
+              <a href="/stories/<%= story.id %>/scenes/<%= story.scenes.first.scene2.id %>"> 
+                <%= story.scenes.first.choice2_text %>
+              </a>
+              <% else %>
+              <a href="/stories/<%= story.id %>/scenes/<%= story.scenes.first.id %>/new?choice=2">
+                <%= story.scenes.first.choice2_text %>
+              </a>
+              <% end %>
+            </a>
+          </h4>
+        </div>
       </div>
-      
-      <div class="col-md-4 box">
-      <h2>Story 2</h2>
-   
-          <p>stories adskfh alsdkhfl kasdhf klahdfkh dsfkh
-        adkhflkasdhfk lahsdflkjasdhfkljha sdfklhdsakljfhk
-        kjasdhfkjashdfklashdfkljdsah adsf lkajsdhfakdshf
-        adhsfkahsdfk adshfhasd asdjhf ksdjah sdafjh  asd
-        aksdhfasdh  asdkhfkl j asdfhl kasjdhf ahsdfl kj
-        ahsdfkl hasdkl fj kjasdhfk lahsdf lkhaf kj lds</p>  
-      
-      </div>
-      
-      <div class="col-md-4 box">
-      <h2>Story 3</h2> 
-    
-           <p>stories adskfh alsdkhfl kasdhf klahdfkh dsfkh
-        adkhflkasdhfk lahsdflkjasdhfkljha sdfklhdsakljfhk
-        kjasdhfkjashdfklashdfkljdsah adsf lkajsdhfakdshf
-        adhsfkahsdfk adshfhasd asdjhf ksdjah sdafjh  asd
-        aksdhfasdh  asdkhfkl j asdfhl kasjdhf ahsdfl kj
-        ahsdfkl hasdkl fj kjasdhfk lahsdf lkhaf kj lds</p>  
-      
-      </div>     
-    
-    </div>   
-    
-=======
-        ahsdfkl hasdkl fj kjasdhfk lahsdf lkhaf kj lds</p>       
-      </div>
-      
-      <div class="col-md-4 box padding_down">
-      <h2>Intructions 2</h2>   
-          <p>stories adskfh alsdkhfl kasdhf klahdfkh dsfkh
-        adkhflkasdhfk lahsdflkjasdhfkljhas dfklhdsakljfhk
-        kjasdhfkjashdfklashdfkljdsah adsf lkajsdhfakdshf
-        adhsfkahsdfk adshfhasd asdjhf ksdjah sdafjh  asd
-        aksdhfasdh  asdkhfkl j asdfhl kasjdhf ahsdfl kj
-        ahsdfkl hasdkl fj kjasdhfk lahsdf lkhaf kj lds</p>       
-      </div>
-      
-      <div class="col-md-4 box padding_down">
-      <h2>Intructions 3</h2>     
-          <p>stories adskfh alsdkhfl kasdhf klahdfkh dsfkh
-        adkhflkasd hfklahsdflkjasdhfk ljhasdfklhdsakljfhk
-        kjasdhfkjashdfklashdfkljdsah adsf lkajsdhfakdshf
-        adhsfkahsdfk adshfhasd asdjhf ksdjah sdafjh  asd
-        aksdhfasdh  asdkhfkl j asdfhl kasjdhf ahsdfl kj
-        ahsdfkl hasdkl fj kjasdhfk lahsdf lkhaf kj lds</p>       
-      </div>   
     </div>
-  </div>
 
-
-
-  <div class="container center padding_up padding_down">    
-    <div class="row">    
-      <div class="col-md-12 box">
-      <h1>story 1</h1> 
-      <div class="well well-sm">
-       <p>stories adskfh alsdkhfl kasdhf klahdfkh dsfkh
-          adkhflkasdhfk lahsdflkjasdhfkljha sdfklhdsakljfhk
-          kjasdhfkjashdfklashdfkljdsah adsf lkajsdhfakdshf
-          adhsfkahsdfk adshfhasd asdjhf ksdjah sdafjh  asd
-          aksdhfasdh  asdkhfkl j asdfhl kasjdhf ahsdfl kj
-          ahsdfkl hasdkl fj kjasdhfk lahsdf lkhaf kj lds
-            kjasdhfkjashdfklashdfkljdsah adsf lkajsdhfakdshf
-          adhsfkahsdfk adshfhasd asdjhf ksdjah sdafjh  asd
-          aksdhfasdh  asdkhfkl j asdfhl kasjdhf ahsdfl kj
-          ahsdfkl hasdkl fj kjasdhfk lahsdf lkhaf kj lds
-            kjasdhfkjashdfklashdfkljdsah ads lkajsdhfakdshf    
-         </p> 
-         </div>
-      <form>
-       
-
-        <button type="submit" class="btn btn-success">Choice 1</button>
-          <button type="submit" class="btn btn-success">Choice 2</button>
-
-      </form>  
-    </div>     
-    </div>  
-  </div> 
-
-  <div class="container center padding_up padding_down">    
-    <div class="row">    
-      <div class="col-md-12 box">
-      <h1>story 2</h1> 
-      <div class="well well-sm">
-       <p>stories adskfh alsdkhfl kasdhf klahdfkh dsfkh
-          adkhflkasdhfk lahsdflkjasdhfkljha sdfklhdsakljfhk
-          kjasdhfkjashdfklashdfkljdsah adsf lkajsdhfakdshf
-          adhsfkahsdfk adshfhasd asdjhf ksdjah sdafjh  asd
-          aksdhfasdh  asdkhfkl j asdfhl kasjdhf ahsdfl kj
-          ahsdfkl hasdkl fj kjasdhfk lahsdf lkhaf kj lds
-            kjasdhfkjashdfklashdfkljdsah adsf lkajsdhfakdshf
-          adhsfkahsdfk adshfhasd asdjhf ksdjah sdafjh  asd
-          aksdhfasdh  asdkhfkl j asdfhl kasjdhf ahsdfl kj
-          ahsdfkl hasdkl fj kjasdhfk lahsdf lkhaf kj lds
-            kjasdhfkjashdfklashdfkljdsah ads lkajsdhfakdshf    
-         </p> 
-      </div>
-
-      <form>     
-        <button type="submit" class="btn btn-success">Choice 1</button>
-          <button type="submit" class="btn btn-success">Choice 2</button>
-      </form>  
-      </div>     
-    </div>       
-  </div>
+    <br />
+    <% end %>

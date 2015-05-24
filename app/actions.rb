@@ -20,6 +20,8 @@ end
 
 
 get '/' do
+  @stories = Story.all.limit(5)
+
   erb :index
 end
 

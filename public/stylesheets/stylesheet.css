@@ -6,8 +6,66 @@ overflow-x: hidden !important;
 }
 
 body {
-  background-color: #86ccce;
+  background-color: #372d3b;
   width:100%;
+  color: #D94362;
+}
+
+.btn-success, .btn-primary { 
+  background-color: #95d6d6;
+  background-image: none;
+  border-color:#b2e8e8; 
+}
+
+.btn-success:hover { 
+  background-color: #a5ceef;
+  background-image: none;
+  border-color:#a5ceef; 
+} 
+
+.btn-primary:hover { 
+  background-color: #a5ceef;
+  background-image: none;
+  border-color:#a5ceef; 
+} 
+
+.btn-success:active { 
+  background-color: #a5ceef;
+  background-image: none;
+  border-color:#a5ceef; 
+} 
+
+.btn-primary:active { 
+  background-color: #a5ceef;
+  background-image: none;
+  border-color:#a5ceef; 
+}
+
+.btn-success:focus { 
+  background-color: #a5ceef;
+  background-image: none;
+  border-color:#a5ceef; 
+} 
+
+.btn-primary:focus { 
+  background-color: #a5ceef;
+  background-image: none;
+  border-color:#a5ceef; 
+} 
+
+
+img {
+  width:200px;
+}
+
+p {
+  color:#494949;
+}
+
+
+.circle {
+  background-color: #8ebbf2;
+  border-radius:10px;
 }
 
 .center {
@@ -28,14 +86,14 @@ body {
 }
 
 .title {
-  padding-top:50px;
+  font-size:3.5em;
 }
 
-.jumbotron {
-  padding-top:100px;
-  margin:none;
-  text-align:center;
-  background-color: #86ccce;
+p.content {
+  page-break-inside: avoid;
+  white-space: pre-wrap;
+
+
 }
 
 textarea {
