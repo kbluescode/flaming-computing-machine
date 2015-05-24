@@ -1,33 +1,42 @@
-<div class="row padding_up">
-  <div class="col-xs-12">
+
+<div class="row padding_up center">
+
+  <div class="col-md-4">
+    <img src="../images/documents_2_512px.png">
+  </div>
+
+  <div class="col-md-4">
     <h1 class="text-center title">Story Path</h1>
   </div>
+
+  <div class="col-md-4">
+    <img src="../images/documents_2_512px.png">
+  </div>
+
 </div>
 
 
 <div class="row padding_down padding_up">
-  <div class="container">
+    <div class="container">
+        <div class="row" id="center">
 
-    <div class="row" id="center">  
-      <div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-4 padding_down circle center">
-        <h2>Choose a story</h2> 
-        <p>Choose between some stories and stuff blah stories adskfh alsdkhfl kasdhf klahdfkh dsfkh adkhflkasdhf sdflkjasdhfkljhas dfklhdsakljfhk</p>
-        </div>
-
-        <div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-4 padding_down circle center">
-          <h2>Create a story</h2>   
-          <p>Choose between some stories and stuff blah stories adskfh alsdkhfl kasdhf klahdfkh dsfkh
-            adkhflkasdhfk lahsdflkjasdhfkljhas dfklhdsakljfhk</p>       
+          <div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-4 padding_down center">
+            <h2>Choose a story</h2> 
+            <p>Choose from a collection of user made stories</p>
           </div>
 
-          <div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-4 padding_down circle center">
+          <div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-4 padding_down center">
+            <h2>Create a story</h2>   
+            <p>Use our current day suggetions and create your own story.</p>       
+          </div>
+
+          <div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-4 padding_down center">
             <h2>Play</h2>     
-            <p>Choose between some stories and stuff blah stories adskfh alsdkhfl kasdhf klahdfkh dsfkh   adkhflkasdhfk lahsdflkjasdhfkljhas dfklhdsakljfhk
-            </p>       
+            <p>Go ahead and play and stuff fack</p>       
           </div>
 
         </div>
-  </div>
+    </div>
 </div>
 
         <% @stories.each do |story| %>
@@ -38,7 +47,6 @@
               <p class="read-more content"><%= story.scenes.first.content %></p>
             </div> 
           </div>
-        </div>
 
         <div class="row">
           <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-4">
@@ -55,11 +63,7 @@
                 <% end %>
               </a>
             </h4>
-          </div>
-        </div>
 
-        <div class="col-md-4">
-          <div class="well well-sm">
             <h4 class="text-center">
               <% if story.scenes.first.scene2 %>
               <a href="/stories/<%= story.id %>/scenes/<%= story.scenes.first.scene2.id %>"> 
