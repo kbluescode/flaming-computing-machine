@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xm-12">
-    <h1 class="title text-center">View Story</h1>
+    <h1 class="title text-center">View Scene</h1>
   </div>
 </div>
 
@@ -15,10 +15,11 @@
     </div>
   </div>
 <% else %>
+  
   <div class="row">
     <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-8">
       <div class="well well-md">
-        <p><%= @story.scenes.first.content %></p>
+        <p><%= @scene.content %></p>
       </div> 
     </div>
   </div>
@@ -27,13 +28,13 @@
     <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-4">
       <div class="well well-sm">
         <h4 class="text-center">
-          <% if @story.scenes.first.scene1 %>
-            <a href="/stories/<%= @story.id %>/scenes/<%= @story.scenes.first.scene1.id %>"> 
-              <%= @story.scenes.first.choice1_text %>
+          <% if @scene.scene1 %>
+            <a href="/stories/<%= @story.id %>/scenes/<%= @scene.scene1.id %>"> 
+              <%= @scene.choice1_text %>
             </a>
           <% else %>
-            <a href="/stories/<%= @story.id %>/scenes/<%= @story.scenes.first.id %>/new?choice=1">
-              <%= @story.scenes.first.choice1_text %>
+            <a href="/stories/<%= @story.id %>/scenes/<%= @scene.id %>/new?choice=1">
+              <%= @scene.choice1_text %>
             </a>
           <% end %>
           </a>
@@ -44,13 +45,13 @@
     <div class="col-md-4">
       <div class="well well-sm">
         <h4 class="text-center">
-          <% if @story.scenes.first.scene2 %>
-            <a href="/stories/<%= @story.id %>/scenes/<%= @story.scenes.first.scene2.id %>"> 
-              <%= @story.scenes.first.choice2_text %>
+          <% if @scene.scene2 %>
+            <a href="/stories/<%= @story.id %>/scenes/<%= @scene.scene2.id %>"> 
+              <%= @scene.choice2_text %>
             </a>
           <% else %>
-            <a href="/stories/<%= @story.id %>/scenes/<%= @story.scenes.first.id %>/new?choice=2">
-              <%= @story.scenes.first.choice2_text %>
+            <a href="/stories/<%= @story.id %>/scenes/<%= @scene.id %>/new?choice=2">
+              <%= @scene.choice2_text %>
             </a>
           <% end %>
           </a>
@@ -60,5 +61,4 @@
   </div>
 
   <br />
-
 <% end %>

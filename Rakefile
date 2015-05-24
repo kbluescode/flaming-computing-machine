@@ -28,7 +28,43 @@ end
 
 desc "populate the test database with sample data"
 task "db:populate" do
-  SceneImporter.new.import
-  StoryImporter.new.import
-  UserImporter.new.import
+
+  
+  Suggestion.destroy_all
+  GetTrends.get_trends
+
+  # Make Users
+
+
+  User.destroy_all
+  kevin = User.create!(user_name: 'Kevin', password: 'derpderp')
+  robin = User.create!(user_name: 'Robin', password: 'yodawg')
+  andrew = User.create!(user_name: 'Andrew', password: 'iheartvince')
+
+  # Make Scenes
+
+  Scene.destroy_all
+  scene1 = Scene.create!(content: 'A hobo walks up to you and asks for the time.',
+                          choice1_text: 'You tell him the time.',
+                          choice2_text: 'You give him a hug.')
+  scene2 = Scene.create!(content: 'The hobo is grateful for the time and expresses his gratitude by peeing on your shoes.',
+                          choice1_text: 'You just walk away.',
+                          choice2_text: 'You punch him in the face.')
+
+  scene1.scene1 = scene2
+  scene1.save!
+
+  # Make story
+
+  Story.destroy_all
+  story1 = Story.create!()
+
+  story1.scenes << scene1
+  story1.scenes << scene2
+  story1.save!
+  # Add story to user
+  
+  kevin.stories << story1
+  kevin.save!
+
 end

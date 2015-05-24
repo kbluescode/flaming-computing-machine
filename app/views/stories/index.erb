@@ -1,5 +1,77 @@
- <div class="jumbotron">
-      
-      <h2>stories</h2>
-      
- </div> 
+<div class="row">
+  <div class="col-xm-12">
+    <h1 class="title text-center">Stories</h1>
+  </div>
+</div>
+
+<br />
+
+<div class="row">
+  <div class="col-xs-12 col-sm-offset-3 col-sm-6">  
+    <form method="GET" action="/stories" class="form-group">
+      <input type="text" placeholder="Search" class="form-control" name="query" />
+    </form>
+  </div> 
+</div>
+
+<br />
+
+<% if @error_msg %>
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-8">
+      <div class="well well-md">
+        <h3 class="text-warning text-center"><span class="glyphicon glyphicon-exclamation-sign"></span> <%= @error_msg %></h3>
+      </div> 
+    </div>
+  </div>
+<% else %>
+  <% @stories.each do |story| %>
+
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-8">
+      <div class="well well-md">
+        <p><%= story.scenes.first.content %></p>
+      </div> 
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-4">
+      <div class="well well-sm">
+        <h4 class="text-center">
+          <% if story.scenes.first.scene1 %>
+            <a href="/stories/<%= story.id %>/scenes/<%= story.scenes.first.scene1.id %>"> 
+              <%= story.scenes.first.choice1_text %>
+            </a>
+          <% else %>
+            <a href="/stories/<%= story.id %>/scenes/<%= story.scenes.first.id %>/new?choice=1">
+              <%= story.scenes.first.choice1_text %>
+            </a>
+          <% end %>
+          </a>
+        </h4>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="well well-sm">
+        <h4 class="text-center">
+          <% if story.scenes.first.scene2 %>
+            <a href="/stories/<%= story.id %>/scenes/<%= story.scenes.first.scene2.id %>"> 
+              <%= story.scenes.first.choice2_text %>
+            </a>
+          <% else %>
+            <a href="/stories/<%= story.id %>/scenes/<%= story.scenes.first.id %>/new?choice=2">
+              <%= story.scenes.first.choice2_text %>
+            </a>
+          <% end %>
+          </a>
+        </h4>
+      </div>
+    </div>
+  </div>
+
+  <br />
+  <% end %>
+
+<% end %>

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xm-12">
-    <h1 class="title text-center">Create Your Story</h1>
+    <h1 class="title text-center">Add Your Scene!</h1>
   </div>
 </div>
 
@@ -17,7 +17,8 @@
 <% end %>
 
 <div class="row">
-  <form method="POST" action="/stories/new" role="form">
+  <form method="POST" action="/stories/<%= @story.id %>/scenes/<%= @source.id %>/new?choice=<%= @choice %>"
+   role="form">
     <div class="form-group">
       <textarea rows="10" cols="160" placeholder="write story here" name="content"><%= @scene.content %></textarea>
     </div>
