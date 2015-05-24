@@ -1,80 +1,78 @@
 <div class="row padding_up">
   <div class="col-xs-12">
-    <h1 class="text-center title">Story Path</h1>
+  <h1 class="title">Story Path <small>Collaborate with random peeps</small></h1>
   </div>
 </div>
 
-
-<div class="row padding_down padding_up">
-  <div class="container">
-
-    <div class="row" id="center">  
-      <div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-4 padding_down circle center">
-        <h2>Choose a story</h2> 
-        <p>Choose between some stories and stuff blah stories adskfh alsdkhfl kasdhf klahdfkh dsfkh adkhflkasdhf sdflkjasdhfkljhas dfklhdsakljfhk</p>
-        </div>
-
-        <div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-4 padding_down circle center">
-          <h2>Create a story</h2>   
-          <p>Choose between some stories and stuff blah stories adskfh alsdkhfl kasdhf klahdfkh dsfkh
-            adkhflkasdhfk lahsdflkjasdhfkljhas dfklhdsakljfhk</p>       
-          </div>
-
-          <div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-4 padding_down circle center">
-            <h2>Play</h2>     
-            <p>Choose between some stories and stuff blah stories adskfh alsdkhfl kasdhf klahdfkh dsfkh   adkhflkasdhfk lahsdflkjasdhfkljhas dfklhdsakljfhk
-            </p>       
-          </div>
-
-        </div>
+<div class="row padding_down instructions well well-sm">
+  <div class="col-md-offset-1 col-md-4">
+    <h2>Create a story</h2>
+    <p>Choose between some stories and stuff blah stories adskfh alsdkhfl kasdhf klahdfkh dsfkh
+      adkhflkasdhfk lahsdflkjasdhfkljhas dfklhdsakljfhk</p>       
+    </div>
+  
+  <div class="col-md-2 text-center">
+    <h2>Stats</h2>
+    <p class="">Total Users: <%= @total_users %></p>
+    <p class="">Total Stories: <%= @total_stories %></p>
+    <p class="">Total Scenes: <%= @total_scenes %></p>
   </div>
-</div>
 
-        <% @stories.each do |story| %>
-
-        <div class="row">
-          <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-8">
-            <div class="well well-md">
-              <p class="read-more content"><%= story.scenes.first.content %></p>
-            </div> 
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-4">
-            <div class="well well-sm">
-              <h4 class="text-center">
-                <% if story.scenes.first.scene1 %>
-                <a href="/stories/<%= story.id %>/scenes/<%= story.scenes.first.scene1.id %>"> 
-                  <p class="read-more content"><%= story.scenes.first.choice1_text %></p>
-                </a>
-                <% else %>
-                <a href="/stories/<%= story.id %>/scenes/<%= story.scenes.first.id %>/new?choice=1">
-                  <p class="read-more content"><%= story.scenes.first.choice1_text %></p>
-                </a>
-                <% end %>
-              </a>
-            </h4>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="well well-sm">
-            <h4 class="text-center">
-              <% if story.scenes.first.scene2 %>
-              <a href="/stories/<%= story.id %>/scenes/<%= story.scenes.first.scene2.id %>"> 
-                <p class="read-more content"><%= story.scenes.first.choice2_text %></p>
-              </a>
-              <% else %>
-              <a href="/stories/<%= story.id %>/scenes/<%= story.scenes.first.id %>/new?choice=2">
-                <p class="read-more content"><%= story.scenes.first.choice2_text %></p> 
-              </a>
-              <% end %>
-            </a>
-          </h4>
-        </div>
-      </div>
+    <div class="col-md-offset-0 col-md-4">
+      <h2 class="text-right">Play</h2>
+      <p class="text-right">Choose between some stories and stuff blah stories adskfh alsdkhfl kasdhf klahdfkh dsfkh   adkhflkasdhfk lahsdflkjasdhfkljhas dfklhdsakljfhk
+      </p>       
     </div>
 
-    <br />
-    <% end %>
+
+  </div>
+</div>
+
+<% @stories.each do |story| %>
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-8">
+    <div class="well well-md">
+      <p class="read-more content"><%= story.scenes.first.content %></p>
+    </div> 
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-4">
+    <div class="well well-sm">
+      <h4 class="text-center">
+        <% if story.scenes.first.scene1 %>
+        <a href="/stories/<%= story.id %>/scenes/<%= story.scenes.first.scene1.id %>"> 
+          <p class="read-more content"><%= story.scenes.first.choice1_text %></p>
+        </a>
+        <% else %>
+        <a href="/stories/<%= story.id %>/scenes/<%= story.scenes.first.id %>/new?choice=1">
+          <p class="read-more content"><%= story.scenes.first.choice1_text %></p>
+        </a>
+        <% end %>
+      </a>
+    </h4>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="well well-sm">
+    <h4 class="text-center">
+      <% if story.scenes.first.scene2 %>
+      <a href="/stories/<%= story.id %>/scenes/<%= story.scenes.first.scene2.id %>"> 
+        <p class="read-more content"><%= story.scenes.first.choice2_text %></p>
+      </a>
+      <% else %>
+      <a href="/stories/<%= story.id %>/scenes/<%= story.scenes.first.id %>/new?choice=2">
+        <p class="read-more content"><%= story.scenes.first.choice2_text %></p> 
+      </a>
+      <% end %>
+    </a>
+  </h4>
+</div>
+</div>
+</div>
+
+<br />
+<% end %>

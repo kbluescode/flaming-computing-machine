@@ -22,6 +22,10 @@ end
 get '/' do
   @stories = Story.all.limit(5)
 
+  @total_stories = Story.all.count()
+  @total_scenes = Scene.all.count()
+  @total_users = User.all.count()
+
   erb :index
 end
 
