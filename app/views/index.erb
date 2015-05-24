@@ -1,3 +1,4 @@
+
 <div class="row padding_up">
   <div class="col-xs-12">
     <h1 class="text-center title">Story Path</h1>
@@ -6,33 +7,31 @@
 
 
 <div class="row padding_down padding_up">
-  <div class="container">
+    <div class="container padding_down">
+        <div class="row" id="center">
 
-    <div class="row" id="center">  
-      <div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-4 padding_down circle center">
-        <h2>Choose a story</h2> 
-        <p>Choose between some stories and stuff blah stories adskfh alsdkhfl kasdhf klahdfkh dsfkh adkhflkasdhf sdflkjasdhfkljhas dfklhdsakljfhk</p>
-        </div>
+          <div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-4 padding_down circle center">
+            <h2>Choose a story</h2> 
+            <p>Choose from a collection of user made stories asdf  adsf</p>
+          </div>
 
-        <div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-4 padding_down circle center">
-          <h2>Create a story</h2>   
-          <p>Choose between some stories and stuff blah stories adskfh alsdkhfl kasdhf klahdfkh dsfkh
-            adkhflkasdhfk lahsdflkjasdhfkljhas dfklhdsakljfhk</p>       
+          <div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-4 padding_down circle center">
+            <h2>Create a story</h2>   
+            <p>Use our current day suggetions and create your own story.</p>       
           </div>
 
           <div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-4 padding_down circle center">
             <h2>Play</h2>     
-            <p>Choose between some stories and stuff blah stories adskfh alsdkhfl kasdhf klahdfkh dsfkh   adkhflkasdhfk lahsdflkjasdhfkljhas dfklhdsakljfhk
-            </p>       
+            <p>Go ahead and play and stuff fack adskfh adsfhadsfasdf</p>       
           </div>
 
         </div>
-  </div>
+    </div>
 </div>
 
         <% @stories.each do |story| %>
 
-        <div class="row">
+        <div class="row padding_up">
           <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-8">
             <div class="well well-md">
               <p><%= story.scenes.first.content %></p>

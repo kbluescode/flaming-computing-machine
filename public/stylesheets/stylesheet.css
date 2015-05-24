@@ -8,8 +8,17 @@ overflow-x: hidden !important;
 body {
   background-color: #372d3b;
   width:100%;
-  color: #D94362;
+  font-family: Verdana, Geneva, sans-serif;
 }
+
+
+
+/* Non-essential demo stuff */
+.hero-unit {
+background-color: #fff;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+.media-object { width: 64px; height: 64px; padding-bottom: 30px }
 
 .btn-success, .btn-primary { 
   background-color: #95d6d6;
@@ -54,12 +63,17 @@ body {
 } 
 
 
+
 img {
   width:200px;
 }
 
 p {
   color:#494949;
+}
+
+h1, h2 {
+  color: #D94362
 }
 
 
@@ -83,6 +97,11 @@ p {
 
 .padding_down {
   padding-bottom:50px;
+}
+
+.padding_right_left {
+  padding-right:100px;
+  padding-left:100px;
 }
 
 .title {
