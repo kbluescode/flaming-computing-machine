@@ -7,6 +7,11 @@ class Scene < ActiveRecord::Base
 
   has_many :scenes
 
-  validates :content, :choice1_text, :choice2_text, 
+  validates :content,
             presence: true
+
+  validates :choice1_text, :choice2_text,
+            presence: true,
+            length: { maximum: 140 }
+
 end

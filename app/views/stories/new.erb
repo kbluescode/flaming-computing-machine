@@ -8,10 +8,10 @@
 
   <% if @scene.errors.any? %>
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-offset-2 col-xs-8">
         <ul class="list-group">
           <% @scene.errors.full_messages.each do |error| %>
-            <li class="list-group-item"><h4 class="text-warning"><%= error %></h4></li>
+            <li class="list-group-item"><h4 class="text-warning"><span class="glyphicon glyphicon-exclamation-sign"></span> <%= error %></h4></li>
           <% end %>
         </ul>
       </div>
@@ -22,7 +22,7 @@
     <div class="col-xs-offset-2 col-xs-8">
       <form method="POST" action="/stories/new" role="form">
         <div class="form-group">
-          <textarea rows="10" cols="160" placeholder="Write story here" name="content"><%= @scene.content %></textarea>
+          <textarea rows="10" cols="160" placeholder="Write story here" name="content" class="form-control"><%= @scene.content %></textarea>
         </div>
         
         <div class="form-group">
@@ -41,7 +41,7 @@
   <div class="row">
     <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-8">
       <div class="well well-md">
-        <h3 class="text-warning"><span class="glyphicon glyphicon-exclamation-mark"></span><%= @error_msg %></h3>
+        <h3 class="text-warning"><span class="glyphicon glyphicon-exclamation-sign"></span> <%= @error_msg %></h3>
         <a href="/login" class="btn btn-info">Log in</a>
       </div> 
     </div>
