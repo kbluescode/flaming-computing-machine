@@ -154,6 +154,8 @@ post '/stories/:story_id/scenes/:scene_id/new' do
   @scene = Scene.new(content: params[:content],
                       choice1_text: params[:choice1_text],
                       choice2_text: params[:choice2_text])
+  
+  @choice = params[:choice]
 
   if params[:choice] == '1'
     @source.scene1 = @scene
@@ -163,7 +165,7 @@ post '/stories/:story_id/scenes/:scene_id/new' do
 
   @scene.story = @story
 
-  if @source.save
+  if @source.save && @scene.save
     redirect "/stories/#{params[:story_id]}/scenes/#{@scene.id}"
   else
     erb :'stories/scenes/new'
