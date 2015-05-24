@@ -8,13 +8,14 @@
 
 <% if @error_msg %>
   <div class="row">
-    <div class="col-sm-offset-1 col-sm-7 col-md-offset-1 col-md-10">
+    <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-8">
       <div class="well well-md">
         <h3 class="text-warning text-center"><span class="glyphicon glyphicon-exclamation-sign"></span> <%= @error_msg %></h3>
       </div> 
     </div>
   </div>
 <% else %>
+  
   <div class="row">
     <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-8">
       <div class="well well-md">
@@ -26,13 +27,35 @@
   <div class="row">
     <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-4">
       <div class="well well-sm">
-        <h4 class="text-center"><a href=""><%= @scene.choice1_text %></a></h4>
+        <h4 class="text-center">
+          <% if @scene.scene1 %>
+            <a href="/stories/<%= @story.id %>/scenes/<%= @scene.scene1.id %>"> 
+              <%= @scene.choice1_text %>
+            </a>
+          <% else %>
+            <a href="/stories/<%= @story.id %>/scenes/<%= @scene.id %>/new?choice=1">
+              <%= @scene.choice1_text %>
+            </a>
+          <% end %>
+          </a>
+        </h4>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="well well-sm">
-        <h4 class="text-center"><a href=""><%= @scene.choice2_text %></a></h4>
+        <h4 class="text-center">
+          <% if @scene.scene2 %>
+            <a href="/stories/<%= @story.id %>/scenes/<%= @scene.scene2.id %>"> 
+              <%= @scene.choice2_text %>
+            </a>
+          <% else %>
+            <a href="/stories/<%= @story.id %>/scenes/<%= @scene.id %>/new?choice=2">
+              <%= @scene.choice2_text %>
+            </a>
+          <% end %>
+          </a>
+        </h4>
       </div>
     </div>
   </div>

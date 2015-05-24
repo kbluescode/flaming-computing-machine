@@ -26,16 +26,39 @@
   <div class="row">
     <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-4">
       <div class="well well-sm">
-        <h4 class="text-center"><a href=""><%= @story.scenes.first.choice1_text %></a></h4>
+        <h4 class="text-center">
+          <% if @story.scenes.first.scene1 %>
+            <a href="/stories/<%= @story.id %>/scenes/<%= @story.scenes.first.scene1.id %>"> 
+              <%= @story.scenes.first.choice1_text %>
+            </a>
+          <% else %>
+            <a href="/stories/<%= @story.id %>/scenes/<%= @story.scenes.first.id %>/new?choice=1">
+              <%= @story.scenes.first.choice1_text %>
+            </a>
+          <% end %>
+          </a>
+        </h4>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="well well-sm">
-        <h4 class="text-center"><a href=""><%= @story.scenes.first.choice2_text %></a></h4>
+        <h4 class="text-center">
+          <% if @story.scenes.first.scene2 %>
+            <a href="/stories/<%= @story.id %>/scenes/<%= @story.scenes.first.scene2.id %>"> 
+              <%= @story.scenes.first.choice2_text %>
+            </a>
+          <% else %>
+            <a href="/stories/<%= @story.id %>/scenes/<%= @story.scenes.first.id %>/new?choice=2">
+              <%= @story.scenes.first.choice2_text %>
+            </a>
+          <% end %>
+          </a>
+        </h4>
       </div>
     </div>
   </div>
 
   <br />
+
 <% end %>

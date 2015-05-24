@@ -150,8 +150,8 @@ post '/stories/:story_id/scenes/:scene_id/new' do
 
   @scene.story = @story
 
-  if @scene.save
-    redirect "/stories/#{params[:story_id]}/scenes/#{params[:scene_id]}"
+  if @source.save
+    redirect "/stories/#{params[:story_id]}/scenes/#{@scene.id}"
   else
     erb :'stories/scenes/new'
   end
