@@ -25,12 +25,18 @@
         <textarea rows="10" cols="160" placeholder="Write story here" class="form-control" name="content"><%= @scene.content %></textarea>
       </div>
 
-      <p class="text-primary">Suggestions 4 u lol: <%= five_random_trends.join(', ') %></p>
-      
-      <div class="form-group">
-        <input type="text" placeholder="choice 1" class="form-control" name="choice1_text" value="<%= @scene.choice1_text %>" />
-      </div>
+  <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <form method="POST" action="/stories/new" role="form">
+        <div class="form-group">
+          <textarea rows="10" cols="160" placeholder="Write story here" name="content" class="form-control"><%= @scene.content %></textarea>
+        </div>
 
+        <div class="alert alert-info text-center" role="alert">Need a suggestion? Try these HAWT TRENDS: <%= five_random_trends.join(', ') %></div>
+
+        <div class="form-group">
+     
+     <input type="text" placeholder="choice 1" class="form-control" name="choice1_text" value="<%= @scene.choice1_text %>" />
       <div class="form-group">
         <input type="text" placeholder="choice 2" class="form-control" name="choice2_text" value="<%= @scene.choice2_text %>"/>
       </div>

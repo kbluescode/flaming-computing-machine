@@ -10,9 +10,18 @@ helpers do
   end
 
   def five_random_trends
-     Suggestion.all.sample(5).map { |word| word.noun }
+   suggestions = Suggestion.all.sample(3).map { |word| word.noun }
+
+   words = []
+   suggestions.each do |s|
+   words << s unless words.include?(s)
+
+   words
   end
-  
+
+
+end
+
 end
 
 
@@ -109,8 +118,8 @@ post '/stories/new' do
   @story = Story.new
 
   @scene = Scene.new(content: params[:content],
-                      choice1_text: params[:choice1_text],
-                      choice2_text: params[:choice2_text])
+    choice1_text: params[:choice1_text],
+    choice2_text: params[:choice2_text])
   @story.scenes << @scene
   
   if @story.save 
