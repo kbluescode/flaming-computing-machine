@@ -119,9 +119,12 @@ p.content {
   white-space: pre-wrap;
 }
 
-.title {
-  
-}
+
+
+/*.box {
+  width:200px;
+  background-color: red;
+}*/
 
 /*:hover {
   background-color: red;
