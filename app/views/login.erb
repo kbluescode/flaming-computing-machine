@@ -1,26 +1,29 @@
-<div class="jumbotron">    
-    <h2>Login</h2>   
+<div class="row padding_up padding_down">
+  <div class="col-xm-12">
+    <h1 class="title text-center">Login</h1>
+  </div>
 </div> 
 
+<div class="row col-xs-12 col-sm-offset-3 col-sm-6">
+  <form method="POST" action="" role="form">
 
-<form method="POST" action="" role="form">
+     <div class="form-group">
+      <label for="user_name">Username</label>
+      <input type="text" class="form-control" name="user_name"/>
+    </div>
 
-   <div class="form-group">
-    <label for="user_name">Username</label>
-    <input type="text" class="form-control" name="user_name"/>
-  </div>
+    <div class="form-group ">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" name="email"/>
+    </div>
 
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="text" class="form-control" name="email"/>
-  </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password" />
+    </div>
 
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" name="password" />
-  </div>
+    <button type="submit" class="btn btn-primary pull-right">Login</button>
 
-  <button type="submit" class="btn btn-primary pull-right">Login</button>
-
-</form>
+  </form>
+</div>
 
