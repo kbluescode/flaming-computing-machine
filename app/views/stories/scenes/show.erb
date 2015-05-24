@@ -25,40 +25,39 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-4">
-      <div class="well well-sm">
-        <h4 class="text-center">
-          <% if @scene.scene1 %>
-            <a href="/stories/<%= @story.id %>/scenes/<%= @scene.scene1.id %>"> 
-              <p class="content"><%= @scene.choice1_text %></p>
-            </a>
-          <% else %>
-            <a href="/stories/<%= @story.id %>/scenes/<%= @scene.id %>/new?choice=1">
-              <p class="content"><%= @scene.choice1_text %></p>
-            </a>
-          <% end %>
-          </a>
-        </h4>
-      </div>
+        <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-4">
+      <% if @scene.scene1 %>
+        <a href="/stories/<%= @story.id %>/scenes/<%= @scene.scene1.id %>">
+          <div class="well well-sm">
+            <h4 class="text-center"><%= @scene.choice1_text %></h4>
+          </div>
+        </a>
+      <% else %>
+        <a href="/stories/<%= @story.id %>/scenes/<%= @scene.id %>/new?choice=1">
+          <div class="well well-sm">
+            <h4 class="text-center"><%= @scene.choice1_text %></h4>
+          </div>
+        </a>
+      <% end %>
     </div>
 
     <div class="col-md-4">
-      <div class="well well-sm">
-        <h4 class="text-center">
-          <% if @scene.scene2 %>
-            <a href="/stories/<%= @story.id %>/scenes/<%= @scene.scene2.id %>"> 
-              <p class="content"><%= @scene.choice2_text %></p>
-            </a>
-          <% else %>
-            <a href="/stories/<%= @story.id %>/scenes/<%= @scene.id %>/new?choice=2">
-              <p class="content"><%= @scene.choice2_text %></p>
-            </a>
-          <% end %>
-          </a>
-        </h4>
-      </div>
+      <% if @scene.scene2 %>
+        <a href="/stories/<%= @story.id %>/scenes/<%= @scene.scene2.id %>">
+          <div class="well well-sm">
+            <h4 class="text-center"><%= @scene.choice2_text %></h4>
+          </div>
+        </a>
+      <% else %>
+        <a href="/stories/<%= @story.id %>/scenes/<%= @scene.id %>/new?choice=2">
+          <div class="well well-sm">
+            <h4 class="text-center"><%= @scene.choice2_text %></h4>
+          </div>
+        </a>
+      <% end %>
     </div>
   </div>
+
 
   <br />
 <% end %>
