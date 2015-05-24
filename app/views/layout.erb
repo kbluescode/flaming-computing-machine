@@ -20,7 +20,7 @@
     
       <div class="navbar-header">
       
-        <a href="" class="navbar-brand">Story Path</a> 
+        <a href="/" class="navbar-brand">Story Path</a> 
         
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
       
@@ -39,23 +39,31 @@
           <li><a href="">About</a></li>
                   
           <li><a href="">Contact</a></li>         
-        
         </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+
+        <% if logged_in? %>
+          <li><a class="" href="">Welcome, <%= get_user.user_name %></a></li>
+          <li><a class="" href="/logout">Logout</a></li>
         
-        <form class="navbar-form navbar-right">
-          
-          <div class="form-group">
-            <input type="email" placeholder="Email" class="form-control" />
-          </div>
-          
-          <div class="form-group">
-            <input type="password" placeholder="Password" class="form-control" />
-          </div>
-          
-          <button type="submit" class="btn btn-success">Log In</button>
-          <button type="submit" class="btn btn-success">Sign up</button>
-          
-        </form>      
+        <% else %>
+            <form method="POST" action="/login" role="form" class="navbar-form">
+            
+            <div class="form-group">
+              <input type="text" placeholder="Username" class="form-control" name="user_name"/>
+            </div>
+            
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control" name="password" />
+            </div>
+            
+            <button type="submit" class="btn btn-success">Log In</button>
+            <a href="/users/new" class="btn btn-success">Sign up</a>
+            
+          </form>
+        <% end %>
+        </ul>
       </div>   
     </div>    
   </div>

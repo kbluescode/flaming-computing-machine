@@ -4,38 +4,49 @@
   </div>
 </div>
 
-<% if @scene.errors.any? %>
+<% if logged_in? %>
+
+  <% if @scene.errors.any? %>
+    <div class="row">
+      <div class="col-xs-offset-2 col-xs-8">
+        <ul class="list-group">
+          <% @scene.errors.full_messages.each do |error| %>
+            <li class="list-group-item"><h4 class="text-warning"><%= error %></h4></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
   <div class="row">
     <div class="col-xs-offset-2 col-xs-8">
-      <ul class="list-group">
-        <% @scene.errors.full_messages.each do |error| %>
-          <li class="list-group-item"><h4 class="text-warning"><%= error %></h4></li>
-        <% end %>
-      </ul>
+      <form method="POST" action="/stories/<%= @story.id %>/scenes/<%= @source.id %>/new?choice=<%= @choice %>"
+       role="form">
+        <div class="form-group">
+          <textarea rows="10" cols="160" placeholder="Write story here" class="form-control" name="content"><%= @scene.content %></textarea>
+        </div>
+        
+        <p class="text-primary">Suggestions 4 u lol: <%= five_random_trends.join(', ') %></p>
+
+        <div class="form-group">
+          <input type="text" placeholder="Choice 1" class="form-control" name="choice1_text" value="<%= @scene.choice1_text %>" />
+        </div>
+
+        <div class="form-group">
+          <input type="text" placeholder="Choice 2" class="form-control" name="choice2_text" value="<%= @scene.choice2_text %>"/>
+        </div>
+
+       <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div>
+  </div>
+<% else %>
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-8">
+      <div class="well well-md">
+        <h3 class="text-warning"><span class="glyphicon glyphicon-exclamation-mark"></span><%= @error_msg %></h3>
+        <a href="/login" class="btn btn-info">Log in</a>
+      </div> 
     </div>
   </div>
 <% end %>
-
-<div class="row">
-  <div class="col-xs-offset-2 col-xs-8">
-    <form method="POST" action="/stories/<%= @story.id %>/scenes/<%= @source.id %>/new?choice=<%= @choice %>"
-     role="form">
-      <div class="form-group">
-        <textarea rows="10" cols="160" placeholder="Write story here" class="form-control" name="content"><%= @scene.content %></textarea>
-      </div>
-      
-      <p class="text-primary">Suggestions 4 u lol: <%= five_random_trends.join(', ') %></p>
-
-      <div class="form-group">
-        <input type="text" placeholder="Choice 1" class="form-control" name="choice1_text" value="<%= @scene.choice1_text %>" />
-      </div>
-
-      <div class="form-group">
-        <input type="text" placeholder="Choice 2" class="form-control" name="choice2_text" value="<%= @scene.choice2_text %>"/>
-      </div>
-
-     <button type="submit" class="btn btn-success">Submit</button>
-    </form>
-  </div>
-
-</div>

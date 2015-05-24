@@ -26,7 +26,7 @@ get '/' do
 end
 
 
-# Login
+# Login / Logout
 
 
 get '/login' do
@@ -34,27 +34,31 @@ get '/login' do
 end
 
 post '/login' do
-  @user = User.find_by(email: params[:email], password: params[:password])
+  @user = User.find_by(user_name: params[:user_name], password: params[:password])
 
   if @user
     session[:id] = @user.id
     redirect '/'
   else
+    @error_msg = "Could not find user with Username: #{params[:user_name]}"
     erb :login
   end
+end
+
+get '/logout' do
+  session[:id] = nil if session[:id]
+  redirect '/'
 end
 
 # Users
 
 
-get '/users' do
-  @users = User.all
-
-  erb :'users/index'
-end
-
 get '/users/new' do
   @user = User.new
+
+  if logged_in?
+    @error_msg = "You're already logged in #{get_user.user_name}; get back to the home page."
+  end
 
   erb :'users/new'
 end
@@ -67,12 +71,6 @@ post '/users/new' do
   else
     erb :'users/new'
   end
-end
-
-get '/users/:id' do
-  @user = User.find_by_id(params[:id])
-
-  erb :'/users/show'
 end
 
 
@@ -97,6 +95,9 @@ get '/stories' do
 end
 
 get '/stories/new' do
+  unless logged_in?
+    @error_msg = "You must be logged in to write a story."
+  end
 
   @story = Story.new
   @scene = Scene.new
@@ -111,9 +112,9 @@ post '/stories/new' do
                       choice1_text: params[:choice1_text],
                       choice2_text: params[:choice2_text])
   @story.scenes << @scene
-
-  if @scene.save && @story.save 
-    redirect '/stories'
+  
+  if @story.save 
+    redirect "/stories/#{@story.id}"
   else
     erb :'stories/new'
   end
@@ -133,6 +134,10 @@ end
 # Scenes
 
 get '/stories/:story_id/scenes/:scene_id/new' do
+  unless logged_in?
+    @error_msg = "You must be logged in to add a scene."
+  end
+
   @story = Story.find(params[:story_id].to_i)
   @source = @story.scenes.find(params[:scene_id].to_i)
   @scene = Scene.new
