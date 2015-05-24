@@ -8,6 +8,11 @@ helpers do
   def get_user
     User.find_by_id(session[:id]) if logged_in?
   end
+
+  def five_random_trends
+     Suggestion.all.sample(5).map { |word| word.noun }
+  end
+  
 end
 
 
@@ -90,6 +95,7 @@ get '/stories' do
 end
 
 get '/stories/new' do
+
   @story = Story.new
   @scene = Scene.new
 

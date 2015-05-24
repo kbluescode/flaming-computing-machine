@@ -29,7 +29,12 @@ end
 desc "populate the test database with sample data"
 task "db:populate" do
 
+  
+  Suggestion.destroy_all
+  GetTrends.get_trends
+
   # Make Users
+
 
   User.destroy_all
   kevin = User.create!(user_name: 'Kevin', password: 'derpderp')
@@ -61,4 +66,5 @@ task "db:populate" do
   
   kevin.stories << story1
   kevin.save!
+
 end
