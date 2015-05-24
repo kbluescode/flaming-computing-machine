@@ -1,18 +1,27 @@
 
 html, body. div {
 
-  width: 100%;
+width: 100%;
 overflow-x: hidden !important;
 }
 
 body {
-  background-color: #372d3b;
+  background-color: #87d1d1;
+  background-image: url("../images/gplaypattern.png");
   width:100%;
-  color: #D94362;
+  font-family: Verdana, Geneva, sans-serif;
 }
 
+
+/* Non-essential demo stuff */
+.hero-unit {
+background-color: #fff;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+.media-object { width: 64px; height: 64px; padding-bottom: 30px }
+
 .btn-success, .btn-primary { 
-  background-color: #95d6d6;
+  background-color: #04cfea;
   background-image: none;
   border-color:#b2e8e8; 
 }
@@ -53,6 +62,10 @@ body {
   border-color:#a5ceef; 
 } 
 
+/*.shadow_round {
+  box-shadow: 2px 4px 5px #888888;
+  border-radius:15px;
+}*/
 
 img {
   width:200px;
@@ -62,11 +75,18 @@ p {
   color:#494949;
 }
 
-
-.circle {
-  background-color: #8ebbf2;
-  border-radius:10px;
+h1 {
+  color: #00b4cc;
 }
+
+h2 {
+  color: #2a8aaa;
+}
+
+/*
+.circle {
+  border-radius:10px;
+}*/
 
 .center {
   text-align: center;
@@ -85,6 +105,11 @@ p {
   padding-bottom:50px;
 }
 
+.padding_right_left {
+  padding-right:100px;
+  padding-left:100px;
+}
+
 .title {
   font-size:3.5em;
 }
@@ -92,9 +117,20 @@ p {
 p.content {
   page-break-inside: avoid;
   white-space: pre-wrap;
-
-
 }
+
+
+
+/*.box {
+  width:200px;
+  background-color: red;
+}*/
+
+/*:hover {
+  background-color: red;
+}*/
+
+
 
 textarea {
   -webkit-box-sizing: border-box;
@@ -106,6 +142,7 @@ textarea {
   margin-left: auto;
   margin-right: auto;
 }
+
 
 .well {
   background-image: -webkit-linear-gradient(top, #fff  0%, #f8f8f8  100%);
