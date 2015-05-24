@@ -112,7 +112,11 @@ post '/stories/new' do
 end
 
 get '/stories/:id' do
-  @story = Story.find_by_id(params[:id])
+  begin
+    @story = Story.find(params[:id].to_i)
+  rescue ActiveRecord::RecordNotFound => e
+    @error_msg = e.message
+  end
 
   erb :'stories/show'
 end
@@ -120,17 +124,46 @@ end
 
 # Scenes
 
-get '/stories/:story_id/scenes/new' do
+get '/stories/:story_id/scenes/:scene_id/new' do
+  @story = Story.find(params[:story_id].to_i)
+  @source = @story.scenes.find(params[:scene_id].to_i)
+  @scene = Scene.new
+  @scene.errors.add(:choice, 'Cannot add scene without previous choice') unless params[:choice]
+  @choice = params[:choice]
 
+  erb :'stories/scenes/new'
 end
 
-post '/stories/:story_id/scenes/new' do
+post '/stories/:story_id/scenes/:scene_id/new' do
+  @story = Story.find(params[:story_id].to_i)
+  @source = @story.scenes.find(params[:scene_id].to_i)
 
+  @scene = Scene.new(content: params[:content],
+                      choice1_text: params[:choice1_text],
+                      choice2_text: params[:choice2_text])
+
+  if params[:choice] == '1'
+    @source.scene1 = @scene
+  elsif params[:choice] == '2'
+    @source.scene2 = @scene
+  end
+
+  @scene.story = @story
+
+  if @scene.save
+    redirect "/stories/#{params[:story_id]}/scenes/#{params[:scene_id]}"
+  else
+    erb :'stories/scenes/new'
+  end
 end
 
 get '/stories/:story_id/scenes/:scene_id' do
-  @story = Story.find(params[:story_id].to_i)
-  @scene = @story.scenes.find(params[:scene_id].to_i)
+  begin
+    @story = Story.find(params[:story_id].to_i)
+    @scene = @story.scenes.find(params[:scene_id].to_i)
+  rescue ActiveRecord::RecordNotFound => e
+    @error_msg = e.message
+  end
 
   erb :'stories/scenes/show'
 end
