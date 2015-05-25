@@ -66,7 +66,7 @@ get '/users/new' do
     @error_msg = "You're already logged in #{get_user.user_name}; get back to the home page."
   end
 
-  erb :'users/new'
+  erb :'/login'
 end
 
 post '/users/new' do
