@@ -1,26 +1,27 @@
 <div class="row padding_up padding_down">
   <div class="col-xm-12">
-    <h1 class="title text-center">Login</h1>
+    <h1 class="title text-center">Sign Up</h1>
   </div>
 </div> 
 
-<% if @error_msg %>
-  <div class="row">
-    <div class="col-sm-offset-1 col-sm-7 col-md-offset-2 col-md-8">
-      <div class="well well-md">
-        <h3 class="text-warning"><span class="glyphicon glyphicon-exclamation-mark"></span><%= @error_msg %></h3>
-        <a href="/" class="btn btn-info">Home</a>
-      </div> 
-    </div>
+<% if @user.errors.any? %>
+<div class="row">
+  <div class="col-xs-offset-2 col-xs-8">
+    <ul class="list-group">
+      <% @user.errors.full_messages.each do |error| %>
+      <li class="list-group-item"><h4 class="text-warning"><span class="glyphicon glyphicon-exclamation-sign"></span> <%= error %></h4></li>
+      <% end %>
+    </ul>
   </div>
-<% else %>
+</div>
+<% end %>
 
-<div class="row col-xs-12 col-sm-offset-3 col-sm-6">
+<div class="row col-xs-12 col-sm-offset-3 col-sm-6 padding_down">
   <form method="POST" action="" role="form">
 
      <div class="form-group">
       <label for="user_name">Username</label>
-      <input type="text" class="form-control" name="user_name"/>
+      <input type="text" class="form-control" name="user_name" value="<%= @user.user_name %>" />
     </div>
 
     <div class="form-group">
@@ -29,8 +30,5 @@
     </div>
 
     <button type="submit" class="btn btn-primary pull-right">Login</button>
-
   </form>
 </div>
-
-<% end %>

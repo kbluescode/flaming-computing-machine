@@ -5,6 +5,14 @@ width: 100%;
 overflow-x: hidden !important;
 }
 
+h1, h2, h3, h5, h6 {
+  font-family: 'Andada, cursive;
+}
+
+p, div {
+  font-family: 'Open Sans', sans-serif;
+}
+
 body {
   background-color: #87d1d1;
   background-image: url("../images/gplaypattern.png");
@@ -62,11 +70,6 @@ background-color: #fff;
   border-color:#a5ceef; 
 } 
 
-/*.shadow_round {
-  box-shadow: 2px 4px 5px #888888;
-  border-radius:15px;
-}*/
-
 img {
   width:200px;
 }
@@ -83,11 +86,6 @@ h2 {
   color: #2a8aaa;
 }
 
-/*
-.circle {
-  border-radius:10px;
-}*/
-
 .center {
   text-align: center;
 }
@@ -98,7 +96,7 @@ h2 {
 }
 
 .padding_up {
-  padding-top:100px;
+  padding-top:60px;
 }
 
 .padding_down {
@@ -111,7 +109,15 @@ h2 {
 }
 
 .title {
-  font-size:3.5em;
+  font-size:4.5em;
+}
+
+small {
+  font-size: 1.5em;
+}
+
+.lobster {
+  font-family: 'Lobster', cursive;
 }
 
 p.content {
@@ -119,18 +125,10 @@ p.content {
   white-space: pre-wrap;
 }
 
-
-
-/*.box {
-  width:200px;
-  background-color: red;
-}*/
-
-/*:hover {
-  background-color: red;
-}*/
-
-
+.title-type {
+  font-family: 'Lobster', cursive;
+  font-size: 2em;
+}
 
 textarea {
   -webkit-box-sizing: border-box;

@@ -10,18 +10,15 @@ helpers do
   end
 
   def five_random_trends
-   suggestions = Suggestion.all.sample(3).map { |word| word.noun }
+    suggestions = Suggestion.all.sample(3).map { |word| word.noun }
 
-   words = []
-   suggestions.each do |s|
-   words << s unless words.include?(s)
+    words = []
+    suggestions.each do |s|
+      words << s unless words.include?(s)
+    end
 
-   words
+    words
   end
-
-
-end
-
 end
 
 
@@ -73,7 +70,7 @@ get '/users/new' do
 end
 
 post '/users/new' do
-  @user = User.new(user_name: params[:user_name], email: params[:email], password: params[:password])
+  @user = User.new(user_name: params[:user_name], password: params[:password])
 
   if @user.save
     redirect "/users/#{@user.id}"
