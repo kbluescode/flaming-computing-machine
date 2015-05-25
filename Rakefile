@@ -29,7 +29,6 @@ end
 desc "populate the test database with sample data"
 task "db:populate" do
 
-  
   Suggestion.destroy_all
   GetTrends.get_trends
 

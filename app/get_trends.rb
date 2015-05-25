@@ -11,7 +11,7 @@ class GetTrends
   data = JSON.parse(buffer)
 
   data["13"].each do |keyword| # 13 Canada
-    Suggestion.create(
+    Suggestion.create!(
       noun: keyword.titleize
     )
     end
