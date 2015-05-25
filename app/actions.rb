@@ -73,7 +73,7 @@ post '/users/new' do
   @user = User.new(user_name: params[:user_name], password: params[:password])
 
   if @user.save
-    redirect "/"
+    redirect "/login"
   else
     erb :'users/new'
   end
