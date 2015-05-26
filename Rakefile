@@ -26,7 +26,7 @@ task "db:version" do
   puts "Current version: #{ActiveRecord::Migrator.current_version}"
 end
 
-desc "populate the test database with sample data"
+desc "Populate the test database with sample data"
 task "db:populate" do
 
   Suggestion.destroy_all
@@ -61,6 +61,7 @@ task "db:populate" do
   story1.scenes << scene1
   story1.scenes << scene2
   story1.save!
+  
   # Add story to user
   
   kevin.stories << story1
