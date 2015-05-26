@@ -26,7 +26,7 @@ end
 
 
 get '/' do
-  @stories = Story.all.limit(5)
+  @stories = Story.order(created_at: :desc)
 
   @total_stories = Story.all.count()
   @total_scenes = Scene.all.count()
@@ -144,7 +144,7 @@ end
 
 get '/stories/:story_id/scenes/:scene_id/new' do
   unless logged_in?
-    @error_msg = "You must be logged in to add a scene."
+    @error_msg = "You must be logged in to add a scene. Don't have an account? It takes 15 seconds to make one!"
   end
 
   @story = Story.find(params[:story_id].to_i)
