@@ -26,7 +26,7 @@ end
 
 
 get '/' do
-  @stories = Story.order(created_at: :desc)
+  @stories = Story.order(created_at: :desc).limit(5)
 
   @total_stories = Story.all.count()
   @total_scenes = Scene.all.count()
