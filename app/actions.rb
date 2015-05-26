@@ -105,7 +105,7 @@ end
 
 get '/stories/new' do
   unless logged_in?
-    @error_msg = "You must be logged in to write a story."
+    @error_msg = "You must be logged in to write a story. Don't have an account? It takes 15 seconds to make one!"
   end
 
   @story = Story.new
