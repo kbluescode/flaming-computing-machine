@@ -86,7 +86,7 @@ end
 # Stories
 
 
-get '/stories' do
+get '/stories/?' do
   if params[:query]
     @scenes = Scene.where("content LIKE ?", "%#{params[:query]}%").to_a
     
