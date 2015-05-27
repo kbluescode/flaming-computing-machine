@@ -6,7 +6,7 @@ overflow-x: hidden !important;
 }
 
 h1, h2, h3, h5, h6 {
-  font-family: 'Andada, cursive;
+  font-family: 'Andada', cursive;
 }
 
 p, div {
@@ -23,7 +23,7 @@ body {
 
 /* Non-essential demo stuff */
 .hero-unit {
-background-color: #fff;
+  background-color: #fff;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 .media-object { width: 64px; height: 64px; padding-bottom: 30px }
@@ -141,6 +141,10 @@ textarea {
   margin-right: auto;
 }
 
+.footer-text {
+  font-size: x-small;
+}
+ 
 
 .well {
   background-image: -webkit-linear-gradient(top, #fff  0%, #f8f8f8  100%);

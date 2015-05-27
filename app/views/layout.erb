@@ -9,7 +9,7 @@
   <link href="<%= url('stylesheets/bootstrap-theme.css')%>" rel="stylesheet" />
 
   <link rel="stylesheet" type="text/css" href="<%= url('stylesheets/stylesheet.css')%>"/>
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="<%= url('./images/favicon-16x16.png') %>">
   <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Basic' rel='stylesheet' type='text/css'>
@@ -25,7 +25,7 @@
     <div class="container">
 
       <div class="navbar-header">
-        
+
         <a href="/" class="navbar-brand title-type">Story Path</a> 
         
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -41,7 +41,7 @@
         <div class="collapse navbar-collapse">
 
           <ul class="nav navbar-nav">
-            
+
             <li><a href="/stories">Browse Stories</a></li>
             <li><a href="/stories/new">Create</a></li>         
             
@@ -79,6 +79,16 @@
     </section>
 
   </div>
+
+<footer>
+  <div class="pull-right">
+    <ul class="list-inline">
+      <li><a href="https://github.com/kbluescode" class="footer-text">Kevin Blues</a></li>
+      <li><a href="https://github.com/robinbeechey" class="footer-text">Robin Beechey</a></li>
+      <li><a href="https://github.com/andrewhayter" class="footer-text">Andrew Hayter</a></li>
+    </ul>
+  </div>
+</footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="<%= url('javascript/bootstrap.min.js')%>"></script>
