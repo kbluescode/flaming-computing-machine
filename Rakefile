@@ -1,9 +1,7 @@
 require 'rake'
 require "sinatra/activerecord/rake"
 
-require_relative 'lib/scene_importer'
-require_relative 'lib/story_importer'
-require_relative 'lib/user_importer'
+require_relative 'lib/db_cleaner'
 
 require ::File.expand_path('../config/environment', __FILE__)
 
@@ -26,7 +24,7 @@ task "db:version" do
   puts "Current version: #{ActiveRecord::Migrator.current_version}"
 end
 
-desc "populate the test database with sample data"
+desc "Populate the test database with sample data"
 task "db:populate" do
 
   Suggestion.destroy_all
@@ -61,6 +59,7 @@ task "db:populate" do
   story1.scenes << scene1
   story1.scenes << scene2
   story1.save!
+  
   # Add story to user
   
   kevin.stories << story1
@@ -68,7 +67,7 @@ task "db:populate" do
 
 end
 
-desc "Clean the database of html, script tags!"
-task "db:sanitize" do
-
+desc 'Retrieves the current schema version number'
+task "db:clean" do
+  DbCleaner.clean_db
 end
