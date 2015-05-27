@@ -67,3 +67,8 @@ task "db:populate" do
   kevin.save!
 
 end
+
+desc "Clean the database of html, script tags!"
+task "db:sanitize" do
+
+end
