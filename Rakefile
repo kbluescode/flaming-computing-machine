@@ -1,9 +1,7 @@
 require 'rake'
 require "sinatra/activerecord/rake"
 
-require_relative 'lib/scene_importer'
-require_relative 'lib/story_importer'
-require_relative 'lib/user_importer'
+require_relative 'lib/db_cleaner'
 
 require ::File.expand_path('../config/environment', __FILE__)
 
@@ -67,4 +65,9 @@ task "db:populate" do
   kevin.stories << story1
   kevin.save!
 
+end
+
+desc 'Retrieves the current schema version number'
+task "db:clean" do
+  DbCleaner.clean_db
 end
