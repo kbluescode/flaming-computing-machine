@@ -1,4 +1,4 @@
-class CreateSuggestionsTable < ActiveRecord::Migration
+class CreateSuggestionsTable < ActiveRecord::Migration[4.2]
   def change
     create_table :suggestions do |t|
       t.string :noun

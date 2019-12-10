@@ -1,4 +1,4 @@
-class CreateScenesTable < ActiveRecord::Migration
+class CreateScenesTable < ActiveRecord::Migration[4.2]
   def change
     create_table :scenes do |t|
       t.string :content

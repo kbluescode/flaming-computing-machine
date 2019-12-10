@@ -1,4 +1,4 @@
-class CreateStoriesTable < ActiveRecord::Migration
+class CreateStoriesTable < ActiveRecord::Migration[4.2]
   def change
     create_table :stories do |t|
       t.string :tags
