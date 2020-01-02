@@ -1,13 +1,16 @@
+# frozen_string_literal: true
+
 # A sample Gemfile
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 gem 'activesupport', '~> 6.0', '>= 6.0.1'
 gem 'json', '~> 2.2'
 gem 'puma', '~> 4.3', '>= 4.3.1'
+gem 'rack', '~> 2.0', '>= 2.0.8'
 gem 'rake', '~> 13.0', '>= 13.0.1'
 gem 'sinatra', '~> 2.0', '>= 2.0.7'
-gem 'sinatra-contrib', '~> 2.0', '>= 2.0.7'
 gem 'sinatra-activerecord', '~> 2.0', '>= 2.0.14'
+gem 'sinatra-contrib', '~> 2.0', '>= 2.0.7'
 
 group :development, :test do
   gem 'pry', '~> 0.12.2'
