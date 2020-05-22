@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 
 gem 'activesupport', '~> 6.0', '>= 6.0.1'
 gem 'json', '~> 2.2'
-gem 'puma', '~> 4.3.3'
+gem 'puma', '~> 4.3.5'
 gem 'rack', '~> 2.0', '>= 2.0.8'
 gem 'rake', '~> 13.0', '>= 13.0.1'
 gem 'sinatra', '~> 2.0', '>= 2.0.7'
