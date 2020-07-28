@@ -4,7 +4,7 @@
 source 'https://rubygems.org'
 
 gem 'activesupport', '~> 6.0'
-gem 'json', '~> 2.2'
+gem 'json', '~> 2.3'
 gem 'puma', '~> 4.3.5'
 gem 'rack', '~> 2.1'
 gem 'rake', '~> 13.0', '>= 13.0.1'
