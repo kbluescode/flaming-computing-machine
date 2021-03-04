@@ -3,6 +3,7 @@
 # A sample Gemfile
 source 'https://rubygems.org'
 
+gem 'activerecord', '~> 6.0', '>= 6.0.3.5'
 gem 'activesupport', '~> 6.0', '>= 6.0.1'
 gem 'json', '~> 2.2'
 gem 'puma', '~> 4.3.3'
