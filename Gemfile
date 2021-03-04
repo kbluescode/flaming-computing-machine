@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-# A sample Gemfile
 source 'https://rubygems.org'
 
-gem 'activesupport', '~> 6.0'
+gem 'activerecord', '~> 6.0', '>= 6.0.3.5'
+gem 'activesupport', '~> 6.0', '>= 6.0.1'
 gem 'json', '~> 2.3'
 gem 'puma', '~> 4.3.5'
 gem 'rack', '~> 2.1'
