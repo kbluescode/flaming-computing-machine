@@ -8,9 +8,9 @@ gem 'json', '~> 2.3'
 gem 'puma', '~> 4.3.11'
 gem 'rack', '~> 2.1'
 gem 'rake', '~> 13.0', '>= 13.0.1'
-gem 'sinatra', '~> 2.0', '>= 2.0.7'
+gem 'sinatra', '~> 2.2'
 gem 'sinatra-activerecord', '~> 2.0', '>= 2.0.14'
-gem 'sinatra-contrib', '~> 2.0', '>= 2.0.7'
+gem 'sinatra-contrib', '~> 2.2'
 
 group :development, :test do
   gem 'pry', '~> 0.12.2'
