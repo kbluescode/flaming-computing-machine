@@ -2,8 +2,8 @@
 
 source 'https://rubygems.org'
 
-gem 'activerecord', '~> 6.0', '>= 6.0.3.5'
-gem 'activesupport', '~> 6.0', '>= 6.0.1'
+gem 'activerecord', '~> 7.0'
+gem 'activesupport', '~> 7.0'
 gem 'json', '~> 2.3'
 gem 'puma', '~> 4.3.12'
 gem 'rack', '~> 2.2'
